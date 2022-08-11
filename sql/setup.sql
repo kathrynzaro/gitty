@@ -15,6 +15,6 @@ CREATE TABLE posts (
 );
 
 INSERT INTO posts (content) VALUES
-('jeans isn''nt a letter, jeans is pants!'),
+('jeans isn''t a letter, jeans is pants!'),
 ('can i get an alcohol?'),
 ('ma called! the bees are back!');
