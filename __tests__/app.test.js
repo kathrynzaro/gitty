@@ -43,6 +43,17 @@ describe('oath routes', () => {
     });
   });
 
+  it('#GET /posts authenticated users should see a list of posts', async () => {
+    const agent = request.agent(app);
+    await agent.get('/api/v1/github/callback?code=42').redirects(1);
+    const res = await agent.get('api/v1/posts');
+    expect(res.status).toBe(200);
+    expect(res.body[0]).toEqual({
+      content: expect.any(String),
+      created_at: expect.any(String),
+    });
+  });
+
   afterAll(() => {
     pool.end();
   });
