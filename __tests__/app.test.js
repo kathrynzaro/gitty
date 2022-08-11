@@ -35,6 +35,14 @@ describe('oath routes', () => {
     });
   });
 
+  it('#DELETE signs out a user', async () => {
+    const res = await request.agent(app).delete('/api/v1/github/callback?code=42');
+    expect(res.body).toEqual({
+      success: true,
+      message: 'Signed out successfully!',
+    });
+  });
+
   afterAll(() => {
     pool.end();
   });
