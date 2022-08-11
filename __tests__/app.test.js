@@ -52,6 +52,7 @@ describe('oath routes', () => {
     const res = await agent.get('/api/v1/posts');
     expect(res.status).toBe(200);
     expect(res.body[0]).toEqual({
+      id: expect.any(String),
       content: expect.any(String),
       created_at: expect.any(String),
     });
